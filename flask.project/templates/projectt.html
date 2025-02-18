@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANCIENT AROMA</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/c1.webp') }}" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      background: #121212;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo img {
+      height: 50px;
+    }
+    nav ul {
+      list-style: none;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      color: #4f2d27;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .hero-content {
+      padding: 0 5%;
+      text-align: right;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 43px;
+    }
+    .hero p {
+      font-size: 22px;
+    }
+    .btn {
+      background-color: #836259;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 90px;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #c68b5e;
+    }
+    .about, .menu, .reservations {
+      padding: 80px;
+      text-align: center;
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
+    .about h2, .menu h2, .reservation-form h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+    .about p, .menu-item p {
+      font-size: 18px;
+      color: #cfd8dc;
+    }
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .menu-item {
+      max-width: 300px;
+      margin: 20px;
+      text-align: left;
+    }
+    .menu-item img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .menu-item h3 {
+      font-size: 24px;
+      color: #ffcc00;
+    }
+    .reservation-form {
+      background-color: #333;
+      padding: 40px;
+      border-radius: 5px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .reservation-form input, .reservation-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      background: #444;
+      color: #f5f5f5;
+    }
+    .reservation-form button {
+      background-color: #ff5722;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    .reservation-form button:hover {
+      background-color: #ffcc00;
+    }
+    .contact {
+      background-color: #333;
+      padding: 80px 0;
+      text-align: center;
+      color: #fff;
+    }
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .info-item {
+      margin: 20px;
+      text-align: center;
+    }
+    .info-item i {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .contact-form input, .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    .contact-form textarea {
+      resize: vertical;
+    }
+    .contact-form button {
+      background-color: #522626;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background-color: #186139;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="{{ url_for('static', filename='images/c1.webp') }}" alt="Ancient Aroma Logo"></div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero" id="home">
+    <video autoplay loop muted playsinline>
+        <source src="{{ url_for('static', filename='videos/videoplayback (1).webm') }}" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+      
+    <div class="hero-content">
+      <h1><i>Welcome to Ancient Aroma</i></h1>
+      <p>Experience the Taste of Perfection</p><br>
+      <a href="#menu" class="btn">Explore Our Menu</a>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <h2>About Ancient Aroma</h2>
+    <p>Welcome to ANCIENT AROMA, where every cup tells a story! Nestled in the heart of Ambala, our premium cafe
+      offers a cozy escape with an inviting ambiance and expertly crafted beverages.</p>
+    <p>Indulge in our artisanal coffee, curated teas, and delectable pastries, all made from the finest local ingredients.</p>
+  </section>
+  <section class="menu" id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/c3.jpeg') }}" alt="Mocha Cookie Crumble">
+        <h3>Mocha Cookie Crumble</h3>
+        <p>Rich chocolate, espresso, cookie bits...</p>
+      </div>
+      <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/c1.jpg') }}" alt="Hazelnut Latte">
+        <h3>Hazelnut Latte</h3>
+        <p>Smooth blend of espresso, hazelnut flavor...</p> 
+      </div>
+      <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/c2.jpg') }}" alt="Java Chip Frappuccino">
+        <h3>Java Chip Frappuccino</h3>
+        <p>Enjoy a deliciously blended coffee experience...</p>
+      </div>
+    </div>
+  </section>
+  <section class="reservations" id="reservations">
+    <div class="reservation-form">  
+      <h2>Make a Reservation</h2>
+      <form action="{{ url_for('reserve') }}" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <input type="number" name="guests" placeholder="Number of Guests" required>
+        <textarea name="special_requests" placeholder="Special Requests"></textarea>
+        <button type="submit">Reserve Now</button>
+      </form>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Sec-9, Ambala City, India</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone-alt"></i>
+          <p>+91 9914542251</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <p>@ancientaroma</p>   
+        </div>
+      </div>
+      <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <p>&copy; 2025 ANCIENT AROMA | All Rights Reserved</p>
+  </section>
+</body>
+</html>
